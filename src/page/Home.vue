@@ -10,6 +10,7 @@
         name: 'Home',
         methods: {
             logout() {
+                localStorage.removeItem('USERINFO')
                 this.$router.push('login')
             }
         }

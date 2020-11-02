@@ -17,7 +17,7 @@
             <p>AI量化交易</p>
             <p>智能交易助手 解决人工交易的烦恼</p>
             <p>简单易用的操作界面 0基础入门</p>
-            <button @click="">进入后台</button>
+            <button @click="$router.push('/')">进入后台</button>
         </div>
         <div class="content" v-else>
             <div class="login">
