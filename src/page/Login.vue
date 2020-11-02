@@ -18,8 +18,22 @@
                 <p>为注册的手机号，请选注册</p>
                 <input type="text" placeholder="手机号码" v-model="userName">
                 <input type="password" placeholder="密码" v-model="passWord">
-                <p>注册新账号</p>
+                <p @click="register = true">注册新账号</p>
                 <button @click="_login">登入</button>
+            </div>
+        </div>
+        <div class="content register" v-show="register">
+            <div>
+                <p>手机号注册</p>
+                <p>为注册的手机号，请选注册</p>
+                <input type="text" placeholder="手机号码" v-model="registerData.userName">
+                <input type="password" placeholder="密码" v-model="registerData.passWord">
+                <input type="password" placeholder="确认密码" v-model="registerData._passWord">
+                <div class="code">
+                    <input type="text" placeholder="验证码" v-model="registerData.code">
+                    <span>发送验证码</span>
+                </div>
+                <button @click="_register">注册</button>
             </div>
         </div>
     </div>
@@ -32,15 +46,44 @@
             return {
                 login: !!localStorage.getItem('USERINFO'),
                 userName: null,
-                passWord: null
+                passWord: null,
+                register: false,
+                registerData: {
+                    userName: null,
+                    passWord: null,
+                    _passWord: null,
+                    code: null
+                }
             }
         },
         methods: {
             _login() {
-                console.log(this.userName,this.passWord)
-                localStorage.setItem("USERINFO",JSON.stringify({userName: this.userName}))
-                // this.$router.back()
-                this.login = true
+                const {userName, passWord} = this
+                const text = !userName ? '请输入用户名'
+                    :  !passWord ? '请输入密码'
+                        : null
+                if (!text) {
+                    localStorage.setItem("USERINFO",JSON.stringify({userName: this.userName}))
+                    // this.$router.back()
+                    this.login = true
+                } else {
+                    alert(text)
+                }
+            },
+            _register() {
+                const {userName, passWord, _passWord, code} = this.registerData
+                const text = !userName ? '请输入用户名'
+                    :  !passWord || !_passWord ? '请输入密码和确认密码'
+                        : !code ? '请输入验证码'
+                            : passWord !== _passWord ? '两次密码不一致'
+                                : null
+                if (!text) {
+                    localStorage.setItem("USERINFO",JSON.stringify({userName: this.registerData.userName}))
+                    this.login = true
+                    this.register = false
+                } else {
+                    alert(text)
+                }
             }
         }
     }
@@ -62,6 +105,8 @@
         box-shadow: 0px 3px 6px rgba(172, 172, 172, 0.16);
         padding: 0 px2Rem(268px) 0;
         box-sizing: border-box;
+        position: relative;
+        z-index: 10;
         img:first-child{
             width: 33px;
         }
@@ -138,6 +183,7 @@
                 font-size: px2Rem(22px);
                 color: #1966FF;
                 margin-bottom: 0;
+                font-weight: 400;
             }
             &:nth-child(2) {
                 font-size: px2Rem(12px);
@@ -152,20 +198,6 @@
                 cursor: pointer;
             }
         }
-        input {
-            margin-top: px2Rem(28px);
-            height: px2Rem(51px);
-            border: 1px solid #EAEAEA;
-            width: 100%;
-            border-radius: 6px;
-            text-indent: px2Rem(20px);
-            outline-color: rgba(25, 102, 255, .8);
-            &::-webkit-input-placeholder{
-                color: rgba(180, 180, 180, .2) !important;
-                font-size: px2Rem(23px);
-                font-weight: 300;
-            }
-        }
         button{
             width: px2Rem(324px);
             height: px2Rem(57px);
@@ -178,6 +210,78 @@
             margin-top: px2Rem(48px);
             border: none;
             cursor: pointer;
+        }
+    }
+    input {
+        margin-top: px2Rem(28px);
+        height: px2Rem(51px);
+        border: 1px solid #EAEAEA;
+        width: 100%;
+        border-radius: 6px;
+        text-indent: px2Rem(20px);
+        outline-color: rgba(25, 102, 255, .8);
+        line-height: px2Rem(51px);
+        font-size: px2Rem(23px);
+        &::-webkit-input-placeholder{
+            color: rgba(180, 180, 180, .2) !important;
+            font-size: px2Rem(23px);
+            font-weight: 300;
+        }
+    }
+    .register{
+        height: 100vh;
+        padding-top: px2Rem(61px);
+        background: #fff;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &>div{
+            width: px2Rem(324px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: px2Rem(-80px);
+            p:first-child{
+                font-size: px2Rem(22px);
+                color: #1966FF;
+                margin-bottom: 0;
+                font-weight: 400;
+            }
+            p:nth-child(2) {
+                font-size: px2Rem(12px);
+                color: #B4B4B4
+            }
+            .code{
+                position: relative;
+                width: 100%;
+                span{
+                    position: absolute;
+                    right: px2Rem(10px);
+                    top: px2Rem(45px);
+                    font-size: px2Rem(17px);
+                    color: rgba(25, 102, 255, 1);
+                    font-weight: 300;
+                    cursor: pointer;
+                }
+            }
+            button{
+                width: px2Rem(324px);
+                height: px2Rem(57px);
+                border-radius: 4px;
+                background: #ee6c5b;
+                color: #fff;
+                font-size: px2Rem(24px);
+                text-align: center;
+                line-height: px2Rem(57px);
+                margin-top: px2Rem(81px);
+                border: none;
+                cursor: pointer;
+            }
         }
     }
 </style>
