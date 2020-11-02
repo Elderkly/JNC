@@ -3,8 +3,15 @@
         <div class="header">
             <img src="../assets/icon.png">
             <span>聚牛策</span>
-            <img src="../assets/user.png" v-show="login">
-            <span v-show="login">1549****5533</span>
+            <div v-show="login" @click="showVip = !showVip,showShade = false">
+                <img src="../assets/user.png" >
+                <span>1549****5533</span>
+                <div class="vip-box" v-show="showVip">
+                    <p>会员剩余天数</p>
+                    <p>128</p>
+                    <button @click.stop="showShade = !showShade">续费</button>
+                </div>
+            </div>
         </div>
         <div class="content" v-if="login">
             <p>AI量化交易</p>
@@ -36,6 +43,12 @@
                 <button @click="_register">注册</button>
             </div>
         </div>
+        <div class="showShade" v-show="showShade">
+            <div>
+                <img src="../assets/QRCode.png"/>
+                <p>2999元/年</p>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -53,7 +66,9 @@
                     passWord: null,
                     _passWord: null,
                     code: null
-                }
+                },
+                showVip: false,
+                showShade: false
             }
         },
         methods: {
@@ -96,6 +111,7 @@
         background-image: url("../assets/bg.png");
         background-size: 100% 100%;
         position: relative;
+        overflow: hidden;
     }
     .header{
         height: px2Rem(61px);
@@ -107,24 +123,28 @@
         box-sizing: border-box;
         position: relative;
         z-index: 10;
-        img:first-child{
+        &>img:first-child{
             width: 33px;
         }
-        img:nth-child(3) {
-            width: 13px;
+        &>div{
+            cursor: pointer;
+            position: relative;
+            img{
+                width: 13px;
+            }
+            span{
+                font-size: 12px;
+                color: #808080;
+                margin-left: 3px;
+            }
         }
-        span:nth-child(2){
+        &>span:nth-child(2){
             font-size: 19px;
             color: #0A1832;
             font-weight: 500;
             margin-left: 6px;
             flex: 1;
             text-align: left;
-        }
-        span:last-child{
-            font-size: 12px;
-            color: #808080;
-            margin-left: 3px;
         }
     }
     .content{
@@ -281,6 +301,68 @@
                 margin-top: px2Rem(81px);
                 border: none;
                 cursor: pointer;
+            }
+        }
+    }
+    .vip-box{
+        position: absolute;
+        width: px2Rem(120px);
+        height: px2Rem(73px);
+        border-radius: 10px;
+        border: 1px solid rgba(239, 239, 239, 1);
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px 0;
+        right: px2Rem(-10px);
+        top: px2Rem(30px);
+        p:first-child{
+            font-size: px2Rem(9px);
+            color: rgba(183, 183, 183, 1);
+        }
+        P:nth-child(2) {
+            font-size: px2Rem(16px);
+            color: rgba(255, 107, 58, 1);
+            margin: 3px 0;
+        }
+        button {
+            border: none;
+            width: px2Rem(60px);
+            height: px2Rem(20px);
+            background: #ee6c5b;
+            color: #fff;
+            font-size: 6px;
+            text-align: center;
+            line-height: px2Rem(20px);
+            border-radius: 2px;
+        }
+    }
+    .showShade{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,.55);
+        top: px2Rem(61px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &>div{
+            width: px2Rem(522px);
+            height: px2Rem(425px);
+            background: rgba(0,0,0,.92);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            img{
+                width: px2Rem(220px);
+            }
+            p{
+                margin-top: px2Rem(31px);
+                font-size: px2Rem(40px);
+                color: rgba(255, 94, 89, 1);
             }
         }
     }
