@@ -1,0 +1,32 @@
+// PX 转 rem
+@function px2Rem($px, $base-font-size: 18px) {
+    @if (unitless($px)) {
+        //有无单位
+        @return ($px / 19.2) * 1rem;
+    } @else if (unit($px) == em) {
+        @return $px;
+    }
+    @return ($px / $base-font-size) * 1rem;
+}
+
+
+@media screen and (max-width: 1920px) {
+    html {
+        font-size: 19.2px;
+    }
+}
+@media screen and (max-width: 1680px) {
+    html {
+        font-size: 16.8px;
+    }
+}
+@media screen and (max-width: 1380px) {
+    html {
+        font-size: 14.4px;
+    }
+}
+@media screen and (max-width: 1300px) {
+    html {
+        font-size: 12.8px;
+    }
+}
