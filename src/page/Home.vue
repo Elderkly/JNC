@@ -1,7 +1,7 @@
 <template>
   <div class="home-box">
       <div class="home-top">
-          <img src="../assets/user-header.png"/>
+          <img src="../assets/icon.png"/>
           <div>
               <img src="../assets/user-header.png"/>
               <div class="right-items">
@@ -86,7 +86,10 @@
             align-items: center;
             &>img{
                 width: px2Rem(75px);
+                height: px2Rem(75px);
+                border-radius: 5px;
                 margin-right: px2Rem(15px);
+                background: #fff;
                 box-shadow: 0px 3px 6px rgba(213, 213, 213, 0.16);
             }
             &>div{
@@ -136,6 +139,7 @@
                 padding: px2Rem(21px) 0;
                 box-sizing: border-box;
                 margin-right: px2Rem(15px);
+                box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
                 .left-button{
                     display: flex;
                     flex-direction: column;
@@ -165,6 +169,9 @@
                 flex: 1;
                 background: #fff;
                 border-radius: 5px;
+                padding: px2Rem(25px) px2Rem(35px);
+                box-sizing: border-box;
+                box-shadow: 0px 3px 6px rgba(193, 193, 193, 0.16);
             }
         }
     }

@@ -29,7 +29,7 @@
                 <button @click="_login">登入</button>
             </div>
         </div>
-        <div class="content register" v-show="register">
+        <div class="register" v-show="register">
             <div>
                 <p>手机号注册</p>
                 <p>为注册的手机号，请选注册</p>
