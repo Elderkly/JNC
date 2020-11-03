@@ -266,6 +266,8 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        background-image: url("../assets/register.png");
+        background-size: 100% 100%;
         &>div{
             width: px2Rem(324px);
             display: flex;

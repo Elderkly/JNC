@@ -9,3 +9,8 @@ p{
     margin-inline-start: 0px;
     margin-inline-end: 0px;
 }
+.ellipsis{
+    overflow:hidden; //超出的文本隐藏
+    text-overflow:ellipsis; //用省略号显示
+    white-space:nowrap; //不换行
+}
