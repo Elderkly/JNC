@@ -19,7 +19,7 @@
             <p>简单易用的操作界面 0基础入门</p>
             <button @click="$router.push('/')">进入后台</button>
         </div>
-        <div class="content" v-else>
+        <div class="login-main-box" v-else>
             <div class="login">
                 <p>手机登入</p>
                 <p>为注册的手机号，请选注册</p>
@@ -108,8 +108,6 @@
     .login-box{
         width: 100%;
         height: 100vh;
-        background-image: url("../assets/bg.png");
-        background-size: 100% 100%;
         position: relative;
         overflow: hidden;
     }
@@ -151,8 +149,11 @@
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-        margin-left: px2Rem(268px);
-        margin-top: px2Rem(141px);
+        padding-left: px2Rem(268px);
+        padding-top: px2Rem(141px);
+        background-image: url("../assets/bg.png");
+        background-size: 100% 100%;
+        height: 100%;
         p {
             &:first-child{
                 font-size: px2Rem(67px);
@@ -231,6 +232,11 @@
             border: none;
             cursor: pointer;
         }
+    }
+    .login-main-box{
+        background-image: url("../assets/login-bg.png");
+        background-size: 100% 100%;
+        height: 100%;
     }
     input {
         margin-top: px2Rem(28px);
