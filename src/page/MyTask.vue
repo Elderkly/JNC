@@ -174,7 +174,7 @@
         display: flex;
         align-items: center;
         span{
-            font-size: px2Rem(20px);
+            font-size: px2Rem(18px);
             color: #465D91;
             font-weight: bold;
             margin-right: px2Rem(22px);
@@ -220,7 +220,7 @@
                 transition: all .3s;
             }
             span{
-                font-size: px2Rem(20px);
+                font-size: px2Rem(18px);
                 color: #818385;
                 font-weight: bold;
             }

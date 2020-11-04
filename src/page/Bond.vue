@@ -19,11 +19,10 @@
         </div>
         <div class="tableBox">
             <div class="table">
-                <div class="header">
-                    <div v-for="(item,index) in ['证劵代码','证劵名称','最新价','涨跌幅','股票余额','可用余额','冻结数量','盈亏金额','市值','盈亏比例','成本价','持仓天数']">
-                        {{item}}
-                    </div>
-                </div>
+                <Header
+                    @changeType="changeType"
+                    :data="['证劵代码','证劵名称','最新价','涨跌幅','股票余额','可用余额','冻结数量','盈亏金额','市值','盈亏比例','成本价','持仓天数']"
+                />
                 <div class="items" v-for="item in [...new Array(5)]">
                     <div class="ellipsis">123023</div>
                     <div class="ellipsis">美联转债</div>

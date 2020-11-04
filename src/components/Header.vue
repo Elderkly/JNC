@@ -33,77 +33,52 @@
 
 <style scoped lang="scss">
     .header{
-        width: 100%;
+        display: table-row;
         height: px2Rem(53px);
         background: #F8FAFA;
         border: 1px solid #EBEBEB;
-        /*padding: 0 35px;*/
-        box-sizing: border-box;
-        display: flex;
-        align-items: center;
+        line-height: px2Rem(53px);
         &>div{
-            position: relative;
+            display: table-cell;
             color: #808080;
-            font-size: px2Rem(18px);
+            font-size: px2Rem(16px);
             font-weight: bold;
-            .triangle{
-                position: absolute;
-                right: px2Rem(40px);
-                top: px2Rem(20px);
-                .up{
-                    width: 0;
-                    height: 0;
-                    border-left: px2Rem(5px) solid transparent;
-                    border-right: px2Rem(5px) solid transparent;
-                    border-bottom: px2Rem(6px) solid #808080;
-                }
-                .down{
-                    width: 0;
-                    height: 0;
-                    border-left: px2Rem(5px) solid transparent;
-                    border-right: px2Rem(5px) solid transparent;
-                    border-top: px2Rem(6px) solid #C7C7C7;
-                    margin-top: px2Rem(2px);
-                }
-            }
-            .down-triangle{
-                .up {
-                    border-bottom: px2Rem(6px) solid #C7C7C7;
-                }
-                .down{
-                    border-top: px2Rem(6px) solid #808080;
-                }
-            }
-            overflow: hidden;
-            flex: .4;
-            line-height: px2Rem(53px);
             text-align: left;
-            height: 100%;
+            position: relative;
             &:first-child{
-                cursor: pointer;
                 text-align: center;
-                flex: .65;
-            }
-            &:nth-child(2) {
-                text-align: left;
-            }
-            &:nth-child(3) {
-                text-align: left;
-            }
-            &:nth-child(4) {
-                text-align: left;
-            }
-            &:nth-child(5) {
-                text-align: left;
-            }
-            &:nth-child(6) {
-                text-align: left;
-            }
-            &:nth-child(7) {
-                text-align: left;
+                cursor: pointer;
             }
             &:last-child{
-                flex: 1;
+                width: 20%;
+            }
+        }
+        .triangle{
+            position: absolute;
+            right: px2Rem(8px);
+            top: px2Rem(20px);
+            .up{
+                width: 0;
+                height: 0;
+                border-left: px2Rem(5px) solid transparent;
+                border-right: px2Rem(5px) solid transparent;
+                border-bottom: px2Rem(6px) solid #808080;
+            }
+            .down{
+                width: 0;
+                height: 0;
+                border-left: px2Rem(5px) solid transparent;
+                border-right: px2Rem(5px) solid transparent;
+                border-top: px2Rem(6px) solid #C7C7C7;
+                margin-top: px2Rem(2px);
+            }
+        }
+        .down-triangle{
+            .up {
+                border-bottom: px2Rem(6px) solid #C7C7C7;
+            }
+            .down{
+                border-top: px2Rem(6px) solid #808080;
             }
         }
     }
