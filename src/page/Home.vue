@@ -27,7 +27,7 @@
               <div
                   :class="['left-button', selectIndex === index ? 'action' : '']"
                   v-for="(item, index) in ['设置任务','我的任务','我的持仓','可转债','任务记录']"
-                  @click="selectIndex = index"
+                  @click="changeSelectIndex(index)"
               >
                   <div class="icon"></div>
                   <p>{{item}}</p>
@@ -41,6 +41,7 @@
               <TaskRecord v-else/>
           </div>
       </div>
+      <BigPop v-if="showBigPop" @hiddenPop="showBigPop = false" key="BigPop"/>
       <button @click="logout">logout</button>
   </div>
 </template>
@@ -51,17 +52,26 @@
     import MyPosition from './MyPosition'
     import Bond from './Bond'
     import TaskRecord from './TaskRecord'
+    import BigPop from '../components/BigPop'
     export default {
         name: 'Home',
         data() {
             return {
-                selectIndex: 0
+                selectIndex: 0,
+                showBigPop: false
             }
         },
         methods: {
             logout() {
                 localStorage.removeItem('USERINFO')
                 this.$router.push('login')
+            },
+            changeSelectIndex(index) {
+                if (index === 0) {
+                    this.showBigPop = true
+                } else {
+                    this.selectIndex = index
+                }
             }
         },
         components: {
@@ -69,7 +79,8 @@
             MyTask,
             MyPosition,
             Bond,
-            TaskRecord
+            TaskRecord,
+            BigPop
         }
     }
 </script>

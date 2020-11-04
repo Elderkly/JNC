@@ -198,6 +198,7 @@
             &>div:first-child{
                 display: flex;
                 flex: 1;
+                align-items: center;
                 div{
                     width: px2Rem(106px);
                     height: px2Rem(27px);

@@ -126,7 +126,7 @@
                         <div>
                             <div>删除</div>
                             <div @click="Popindex = 0">修改</div>
-                            <div @click="showBigPop = true">手动</div>
+                            <div>手动</div>
                             <div>
                                 <div>
                                     <img src="../assets/up.png"/>
@@ -143,20 +143,17 @@
                 </div>
             </div>
         </div>
-        <BigPop v-if="showBigPop" @hiddenPop="showBigPop = false" key="BigPop"/>
     </div>
 </template>
 
 <script>
     import Header from '../components/Header'
-    import BigPop from '../components/BigPop'
     import Pop from '../components/Pop'
     export default {
         name: 'MyTask',
         data() {
             return {
                 selectIndex: 0,
-                showBigPop: false,
                 Popindex: null
             }
         },
@@ -167,7 +164,6 @@
         },
         components: {
             Header,
-            BigPop,
             Pop
         }
     }
