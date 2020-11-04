@@ -178,6 +178,9 @@
             height: px2Rem(60px);
             line-height: px2Rem(60px);
             &:hover{
+                background: rgba(7, 193, 116, .1) !important;
+            }
+            &:nth-child(2n + 1) {
                 background: rgba(181, 181, 181, .1);
             }
             &>div{

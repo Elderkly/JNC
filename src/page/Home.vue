@@ -57,7 +57,7 @@
         name: 'Home',
         data() {
             return {
-                selectIndex: 0,
+                selectIndex: 1,
                 showBigPop: false
             }
         },
