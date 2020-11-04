@@ -257,12 +257,13 @@
                         }
                         div{
                             position: absolute;
-                            right: px2Rem(-10px);
+                            right: px2Rem(-15px);
                             top: px2Rem(-10px);
                             background: rgba(255, 64, 80, 1);
-                            border-radius: 9px;
+                            border-radius: px2Rem(12px);
                             padding: 0 px2Rem(5px);
                             font-size: px2Rem(10px);
+                            min-width: px2Rem(20px);
                             color: #fff;
                         }
                     }

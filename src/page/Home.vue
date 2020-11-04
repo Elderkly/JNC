@@ -78,7 +78,6 @@
                 }
             },
             showPop(Y) {
-                console.log(this.$refs.plat.clientHeight+Y,document.body.clientHeight)
                 if (this.$refs.plat.clientHeight+Y > document.body.clientHeight) {
                     this.PopTop = document.body.clientHeight - this.$refs.plat.clientHeight - 10
                 } else {
