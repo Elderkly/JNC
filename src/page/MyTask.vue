@@ -66,7 +66,7 @@
                     </div>
                     <div>
                         <span>删除</span>
-                        <span @click="Popindex = 0">修改</span>
+                        <span @click="$emit('ShowBigPop')">修改</span>
                         <span>手动</span>
                         <div>
                             <div>

@@ -35,7 +35,7 @@
           </div>
           <div class="home-right">
               <SetupTask v-if="selectIndex === 0"/>
-              <MyTask v-else-if="selectIndex === 1"/>
+              <MyTask v-else-if="selectIndex === 1" @ShowBigPop="showBigPop = true"/>
               <MyPosition v-else-if="selectIndex === 2"/>
               <Bond v-else-if="selectIndex === 3"/>
               <TaskRecord v-else/>

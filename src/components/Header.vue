@@ -1,13 +1,15 @@
 <template>
     <div class="header">
-        <div v-for="(item,index) in data" @click="index === 0 ? _set() : ''">
-            {{item}}
-            <div
-                :class="['triangle', type === 'down' ? 'down-triangle' : '']"
-                v-show="index === 0"
-            >
-                <div class="up"></div>
-                <div class="down"></div>
+        <div v-for="(item,index) in data" @click="_set(index)">
+            <div>
+                {{item}}
+                <div
+                    :style="{opacity: showTriangle && selectIndex === index ? 1 : 0}"
+                    :class="['triangle', type === 'down' ? 'down-triangle' : '']"
+                >
+                    <div class="up"></div>
+                    <div class="down"></div>
+                </div>
             </div>
         </div>
     </div>
@@ -19,13 +21,36 @@
         props: ['data'],
         data() {
             return {
-                type: 'up'
+                type: 'up',
+                selectIndex: null,
+                showTriangle: false
             }
         },
         methods: {
-            _set() {
-                this.type = this.type === 'up' ? 'down' : 'up'
-                this.$emit('changeType', this.type)
+            _set(index) {
+                if (this.timeout) {
+                    clearTimeout(this.timeout)
+                    this.timeout = setTimeout(() => {
+                        this.showTriangle = false
+                        this.timeout = null
+                    },1000)
+                } else {
+                    this.timeout = setTimeout(() => {
+                        this.showTriangle = false
+                        this.timeout = null
+                    },1000)
+                }
+                this.showTriangle = true
+                if (index === this.selectIndex) {
+                    this.type = this.type === 'up' ? 'down' : 'up'
+                } else {
+                    this.selectIndex = index
+                    this.type = 'down'
+                }
+                this.$emit('changeType', {
+                    name: this.data[index],
+                    type: this.type
+                })
             }
         }
     }
@@ -45,40 +70,46 @@
             font-weight: bold;
             text-align: left;
             position: relative;
+            cursor: pointer;
             &:first-child{
-                text-align: center;
-                cursor: pointer;
+                text-indent: px2Rem(30px);
+                width: 10%;
             }
             &:last-child{
                 width: 20%;
             }
+            &>div{
+                position: absolute;
+            }
         }
         .triangle{
             position: absolute;
-            right: px2Rem(8px);
+            right: px2Rem(-10px);
             top: px2Rem(20px);
+            opacity: 0;
+            transition: all .3s;
             .up{
                 width: 0;
                 height: 0;
-                border-left: px2Rem(5px) solid transparent;
-                border-right: px2Rem(5px) solid transparent;
-                border-bottom: px2Rem(6px) solid #808080;
+                border-left: px2Rem(3px) solid transparent;
+                border-right: px2Rem(3px) solid transparent;
+                border-bottom: px2Rem(4px) solid #808080;
             }
             .down{
                 width: 0;
                 height: 0;
-                border-left: px2Rem(5px) solid transparent;
-                border-right: px2Rem(5px) solid transparent;
-                border-top: px2Rem(6px) solid #C7C7C7;
+                border-left: px2Rem(3px) solid transparent;
+                border-right: px2Rem(3px) solid transparent;
+                border-top: px2Rem(4px) solid #C7C7C7;
                 margin-top: px2Rem(2px);
             }
         }
         .down-triangle{
             .up {
-                border-bottom: px2Rem(6px) solid #C7C7C7;
+                border-bottom: px2Rem(4px) solid #C7C7C7;
             }
             .down{
-                border-top: px2Rem(6px) solid #808080;
+                border-top: px2Rem(4px) solid #808080;
             }
         }
     }
