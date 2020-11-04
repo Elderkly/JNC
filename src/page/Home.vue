@@ -35,13 +35,15 @@
           </div>
           <div class="home-right">
               <SetupTask v-if="selectIndex === 0"/>
-              <MyTask v-else-if="selectIndex === 1" @ShowBigPop="showBigPop = true"/>
+              <MyTask v-else-if="selectIndex === 1" @ShowBigPop="showBigPop = true" @showPop="showPop"/>
               <MyPosition v-else-if="selectIndex === 2"/>
               <Bond v-else-if="selectIndex === 3"/>
               <TaskRecord v-else/>
           </div>
       </div>
       <BigPop v-if="showBigPop" @hiddenPop="showBigPop = false" key="BigPop"/>
+      <Pop v-if="PopTop" :style="{top: PopTop + 'px'}" @hiddenPop="PopTop = null" key="Pop"/>
+      <div class="plat" ref="plat"></div>
       <button @click="logout">logout</button>
   </div>
 </template>
@@ -53,12 +55,14 @@
     import Bond from './Bond'
     import TaskRecord from './TaskRecord'
     import BigPop from '../components/BigPop'
+    import Pop from '../components/Pop'
     export default {
         name: 'Home',
         data() {
             return {
                 selectIndex: 1,
-                showBigPop: false
+                showBigPop: false,
+                PopTop: null
             }
         },
         methods: {
@@ -72,6 +76,14 @@
                 } else {
                     this.selectIndex = index
                 }
+            },
+            showPop(Y) {
+                console.log(this.$refs.plat.clientHeight+Y,document.body.clientHeight)
+                if (this.$refs.plat.clientHeight+Y > document.body.clientHeight) {
+                    this.PopTop = document.body.clientHeight - this.$refs.plat.clientHeight - 10
+                } else {
+                    this.PopTop = Y
+                }
             }
         },
         components: {
@@ -80,7 +92,8 @@
             MyPosition,
             Bond,
             TaskRecord,
-            BigPop
+            BigPop,
+            Pop
         }
     }
 </script>
@@ -239,5 +252,12 @@
                 box-shadow: 0px 3px 6px rgba(193, 193, 193, 0.16);
             }
         }
+    }
+    .plat{
+        height: px2Rem(447px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
     }
 </style>

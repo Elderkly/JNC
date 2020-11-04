@@ -67,7 +67,7 @@
                     <div>
                         <span>删除</span>
                         <span @click="$emit('ShowBigPop')">修改</span>
-                        <span>手动</span>
+                        <span @click="showPop">手动</span>
                         <div>
                             <div>
                                 <img src="../assets/up.png"/>
@@ -99,6 +99,9 @@
         methods: {
             changeType(type) {
                 console.log('排序变化变更',type)
+            },
+            showPop() {
+                this.$emit('showPop',event.pageY)
             }
         },
         components: {

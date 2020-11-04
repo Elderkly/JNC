@@ -1,12 +1,12 @@
 <template>
-    <div class="PoP">
-        <div class="header">
+    <div class="PoP" ref="pop">
+        <div class="header" @mousedown="_mousedown">
             <div>
                 <span>证劵代码</span>
                 <div>123023</div>
             </div>
             <span>撤销挂单</span>
-            <div @click="$emit('hiddenPop')">
+            <div @click.stop="$emit('hiddenPop')">
                 <img src="../assets/close.png">
             </div>
         </div>
@@ -80,11 +80,16 @@
                 <img src="../assets/bbutton2.png">
             </div>
         </div>
+        <div
+            class="moveView"
+            @mousedown="_mousedown"
+        ></div>
     </div>
 </template>
 
 <script>
     import Field from '../components/Field'
+    import TouchMove from "../touchMove";
     export default {
         name: 'Pop',
         data() {
@@ -157,6 +162,12 @@
                 ]
             }
         },
+        methods: {
+            _mousedown(event) {
+                console.log(123)
+                TouchMove(event, this.$refs.pop)
+            }
+        },
         components: {
             Field
         }
@@ -186,6 +197,7 @@
             align-items: center;
             border-bottom: 1px solid #DDDDDD;
             position: relative;
+            cursor: pointer;
             span{
                 font-size: px2Rem(15px);
                 color: #898989;

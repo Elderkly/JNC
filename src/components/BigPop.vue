@@ -1,6 +1,6 @@
 <template>
     <div class="big-pop">
-        <div class="big-pop-content">
+        <div class="big-pop-content" ref="pop">
             <div class="header">
                 <span>证劵代码</span>
                 <input type="text"  v-model="Code">
@@ -28,12 +28,17 @@
                     <div @click="$emit('hiddenPop')">取消</div>
                 </div>
             </div>
+            <div
+                class="moveView"
+                @mousedown="_mousedown"
+            ></div>
         </div>
     </div>
 </template>
 
 <script>
     import Field from '../components/Field'
+    import TouchMove from '../touchMove'
     export default {
         name: 'BigProp',
         components: {
@@ -123,12 +128,20 @@
                         type: 'BigDheckbox'
                     },
                 ],
+                startX: null,
+                startY: null,
+                oldX: 0,
+                oldY: 0,
+                max: []
             }
         },
         methods: {
             submit() {
                 console.log(this.Field)
                 this.$emit('hiddenPop')
+            },
+            _mousedown(event) {
+                TouchMove(event, this.$refs.pop)
             }
         }
     }
@@ -142,9 +155,10 @@
         top: 0;
         left: 0;
         background: rgba(0,0,0,.65);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        /*display: flex;*/
+        /*align-items: center;*/
+        /*justify-content: center;*/
+        user-select:none;
         .big-pop-content{
             width: px2Rem(854px);
             height: px2Rem(562px);
@@ -152,6 +166,9 @@
             border-radius: 20px;
             display: flex;
             flex-direction: column;
+            position: absolute;
+            top: 18%;
+            left: 28%;
             .header{
                 height: px2Rem(73px);
                 background: #E9E9E9;
@@ -178,6 +195,13 @@
                     display: flex;
                     flex-wrap: wrap;
                 }
+            }
+            .moveView{
+                position: absolute;
+                width: 100%;
+                height: px2Rem(50px);
+                top: 0;
+                cursor: pointer;
             }
         }
         input{
