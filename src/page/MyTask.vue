@@ -125,8 +125,8 @@
                         </div>
                         <div>
                             <div>删除</div>
-                            <div>修改</div>
-                            <div>手动</div>
+                            <div @click="Popindex = 0">修改</div>
+                            <div @click="showBigPop = true">手动</div>
                             <div>
                                 <div>
                                     <img src="../assets/up.png"/>
@@ -139,20 +139,25 @@
                             </div>
                         </div>
                     </div>
+                    <Pop v-show="Popindex === 0" @hiddenPop="Popindex = null"/>
                 </div>
             </div>
-
         </div>
+        <BigPop v-if="showBigPop" @hiddenPop="showBigPop = false" key="BigPop"/>
     </div>
 </template>
 
 <script>
     import Header from '../components/Header'
+    import BigPop from '../components/BigPop'
+    import Pop from '../components/Pop'
     export default {
         name: 'MyTask',
         data() {
             return {
-                selectIndex: 0
+                selectIndex: 0,
+                showBigPop: false,
+                Popindex: null
             }
         },
         methods: {
@@ -161,7 +166,9 @@
             }
         },
         components: {
-            Header
+            Header,
+            BigPop,
+            Pop
         }
     }
 </script>
@@ -370,7 +377,7 @@
                         font-weight: 300;
                         cursor: pointer;
                     }
-                    &:last-child{
+                    &:nth-child(15){
                         &>div{
                             display: flex;
                             margin-bottom: px2Rem(5px);
@@ -405,6 +412,7 @@
                 display: flex;
                 align-items: center;
                 height: px2Rem(80px);
+                position: relative;
                 &>div{
                     position: relative;
                     &:first-child{
@@ -617,7 +625,7 @@
             &:nth-child(7) {
                 text-align: left;
             }
-            &:last-child{
+            &:nth-child(15){
                 flex: 1;
             }
 

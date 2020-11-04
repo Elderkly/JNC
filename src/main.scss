@@ -14,3 +14,17 @@ p{
     text-overflow:ellipsis; //用省略号显示
     white-space:nowrap; //不换行
 }
+.lastBox{
+    width: px2Rem(75px) !important;
+}
+.lastBigBox{
+    width: px2Rem(183px) !important;
+}
+.PopInput{
+    width: px2Rem(90px) !important;
+}
+@media screen and (max-width: 1300px) {
+    .PopInput{
+        width: px2Rem(80px) !important;
+    }
+}
