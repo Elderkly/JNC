@@ -17,69 +17,78 @@
                 <div>{{item.number}}</div>
             </div>
         </div>
-        <div class="tableBox">
-            <div class="table">
-                <Header
-                    @changeType="changeType"
-                    :data="['名称代码','最新价','涨跌幅','监听买入价','监听卖出价','监听数量','盈亏金额','市值','可用股数','成交量','运行天数','']"
-                />
-                <div class="items" v-for="item in [...new Array(5)]">
-                    <div>
-                        <div>
-                            <span class="ellipsis">美联转债</span>
-                            <span class="ellipsis">123023.SZ</span>
-                            <div>35</div>
-                        </div>
-                    </div>
-                    <div class="ellipsis">103.530</div>
-                    <div>-3.45%</div>
-                    <div>
-                        <p class="ellipsis">101.3</p>
-                        <p>拐点 : 0.2%</p>
-                    </div>
-                    <div>
-                        <p class="ellipsis">105.3</p>
-                        <p>拐点 : 无</p>
-                    </div>
-                    <div>
-                        <p class="ellipsis">买入: <span>30</span></p>
-                        <p class="ellipsis">卖出: <span>10</span></p>
-                    </div>
-                    <div>
-                        <p class="ellipsis">-20394</p>
-                        <p class="ellipsis">盈亏幅度 :<span>-3.52%</span></p>
-                    </div>
-                    <div class="ellipsis">104095.33</div>
-                    <div>
-                        <p class="ellipsis">300股</p>
-                        <p class="ellipsis">持仓股数 : 400股</p>
-                    </div>
-                    <div>
-                        <p class="ellipsis">3000万</p>
-                        <p class="ellipsis">剩余库存 : 848</p>
-                    </div>
-                    <div>
-                        <div>
-                            <p class="ellipsis">38天</p>
-                            <p class="ellipsis">Date : 2020.8.23 </p>
-                        </div>
-                    </div>
-                    <div>
-                        <span>删除</span>
-                        <span @click="$emit('ShowBigPop')">修改</span>
-                        <span @click="showPop">手动</span>
+        <div class="box">
+            <div class="tableBox">
+                <div class="table">
+                    <Header
+                        class="opacityHeader"
+                        @changeType="changeType"
+                        :data="['名称代码','最新价','涨跌幅','监听买入价','监听卖出价','监听数量','盈亏金额','市值','可用股数','成交量','运行天数','']"
+                    />
+                    <div class="items" v-for="item in [...new Array(10)]">
                         <div>
                             <div>
-                                <img src="../assets/up.png"/>
-                                <div>百分比%</div>
+                                <span class="ellipsis">美联转债</span>
+                                <span class="ellipsis">123023.SZ</span>
+                                <div>35</div>
                             </div>
+                        </div>
+                        <div class="ellipsis">103.530</div>
+                        <div>-3.45%</div>
+                        <div>
+                            <p class="ellipsis">101.3</p>
+                            <p>拐点 : 0.2%</p>
+                        </div>
+                        <div>
+                            <p class="ellipsis">105.3</p>
+                            <p>拐点 : 无</p>
+                        </div>
+                        <div>
+                            <p class="ellipsis">买入: <span>30</span></p>
+                            <p class="ellipsis">卖出: <span>10</span></p>
+                        </div>
+                        <div>
+                            <p class="ellipsis">-20394</p>
+                            <p class="ellipsis">盈亏幅度 :<span>-3.52%</span></p>
+                        </div>
+                        <div class="ellipsis">104095.33</div>
+                        <div>
+                            <p class="ellipsis">300股</p>
+                            <p class="ellipsis">持仓股数 : 400股</p>
+                        </div>
+                        <div>
+                            <p class="ellipsis">3000万</p>
+                            <p class="ellipsis">剩余库存 : 848</p>
+                        </div>
+                        <div>
                             <div>
-                                <img src="../assets/down.png"/>
-                                <div>百分比%</div>
+                                <p class="ellipsis">38天</p>
+                                <p class="ellipsis">Date : 2020.8.23 </p>
+                            </div>
+                        </div>
+                        <div>
+                            <span>删除</span>
+                            <span @click="$emit('ShowBigPop')">修改</span>
+                            <span @click="showPop">手动</span>
+                            <div>
+                                <div>
+                                    <img src="../assets/up.png"/>
+                                    <input placeholder="百分比%"/>
+                                </div>
+                                <div>
+                                    <img src="../assets/down.png"/>
+                                    <input placeholder="百分比%">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            <div class="fixedHeader">
+                <Header
+                    @changeType="changeType"
+                    :data="['名称代码','最新价','涨跌幅','监听买入价','监听卖出价','监听数量','盈亏金额','市值','可用股数','成交量','运行天数','']"
+                />
             </div>
         </div>
     </div>
@@ -136,7 +145,7 @@
                 border: none;
                 border-radius: 5px;
                 text-indent: px2Rem(48px);
-                font-size: px2Rem(20px);
+                font-size: px2Rem(18px);
                 &::placeholder{
                     color: #C1C1C1;
                     font-weight: bold;
@@ -190,10 +199,13 @@
 
     .tableBox{
         border: 1px solid #EBEBEB;
-        height: 60vh;
+        /*height: 60vh;*/
+        min-height: 300px;
+        overflow-y: scroll;
+        max-height: 500px;
     }
     ::-webkit-scrollbar {
-        display: none; /* Chrome Safari */
+        /*display: none; !* Chrome Safari *!*/
     }
     .table{
         display: table;
@@ -262,8 +274,8 @@
                             background: rgba(255, 64, 80, 1);
                             border-radius: px2Rem(12px);
                             padding: 0 px2Rem(5px);
-                            font-size: px2Rem(10px);
-                            min-width: px2Rem(20px);
+                            font-size: px2Rem(12px);
+                            min-width: px2Rem(18px);
                             color: #fff;
                         }
                     }
@@ -356,19 +368,21 @@
                     &>div{
                         &>div{
                             display: flex;
-                            margin-bottom: px2Rem(5px);
+                            margin-bottom: px2Rem(3px);
+                            align-items: center;
                             &:first-child{
-                                margin-top: px2Rem(10px);
+                                margin-top: px2Rem(3px);
                             }
                         }
                         img{
                             width: px2Rem(15px);
+                            height: px2Rem(20px);
                             margin-right: px2Rem(9px);
                         }
                         &>div:last-child img {
                             transform: rotate(180deg);
                         }
-                        &>div div{
+                        &>div input{
                             width: 50px;
                             height: px2Rem(21px);
                             background: #FFFFFF;
@@ -377,7 +391,7 @@
                             opacity: 1;
                             border-radius: 5px;
                             color: #BABABA;
-                            font-size: 6px;
+                            font-size: px2Rem(10px);
                             text-align: center;
                             line-height: px2Rem(21px);
                         }
@@ -385,5 +399,20 @@
                 }
             }
         }
+    }
+    .opacityHeader{
+        opacity: 0;
+    }
+    .box{
+        position: relative;
+    }
+    .fixedHeader{
+        position: absolute;
+        top: 0;
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        border: 1px solid #EBEBEB;
+        box-sizing: border-box;
     }
 </style>

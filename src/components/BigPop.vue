@@ -167,8 +167,8 @@
             display: flex;
             flex-direction: column;
             position: absolute;
-            top: 18%;
-            left: 28%;
+            top: calc(50% - 562px / 2);
+            left: calc(50% - 854px / 2);
             .header{
                 height: px2Rem(73px);
                 background: #E9E9E9;

@@ -1,7 +1,15 @@
 <template>
   <div class="home-box">
       <div class="home-top">
-          <img src="../assets/icon.png"/>
+          <div class="headerBox" @click="showVip = !showVip">
+              <img src="../assets/user-header.jpg"/>
+          </div>
+          <div class="vip-box" v-show="showVip">
+              <p>会员剩余天数</p>
+              <p>128</p>
+              <button @click.stop="showShade = !showShade">续费</button>
+              <button @click.stop="logout">退出</button>
+          </div>
           <div>
               <img src="../assets/icon-red.png"/>
               <div class="right-items">
@@ -44,7 +52,13 @@
       <BigPop v-if="showBigPop" @hiddenPop="showBigPop = false" key="BigPop"/>
       <Pop v-if="PopTop" :style="{top: PopTop + 'px'}" @hiddenPop="PopTop = null" key="Pop"/>
       <div class="plat" ref="plat"></div>
-      <button @click="logout">logout</button>
+<!--      <button @click="logout">logout</button>-->
+      <div class="showShade" v-show="showShade" @click="showShade = false">
+          <div>
+              <img src="../assets/QRCode.png"/>
+              <p>2999元/年</p>
+          </div>
+      </div>
   </div>
 </template>
 
@@ -62,7 +76,9 @@
             return {
                 selectIndex: 1,
                 showBigPop: false,
-                PopTop: null
+                PopTop: null,
+                showVip: false,
+                showShade: false
             }
         },
         methods: {
@@ -107,15 +123,21 @@
         .home-top{
             display: flex;
             align-items: center;
-            &>img{
+            .headerBox{
                 width: px2Rem(75px);
                 height: px2Rem(75px);
                 border-radius: 5px;
                 margin-right: px2Rem(15px);
                 background: #fff;
                 box-shadow: 0px 3px 6px rgba(213, 213, 213, 0.16);
+                overflow: hidden;
+                cursor: pointer;
+                &>img{
+                    width: px2Rem(75px);
+                    height: px2Rem(75px);
+                }
             }
-            &>div{
+            &>div:last-child{
                 flex: 1;
                 background: #fff;
                 display: flex;
@@ -148,10 +170,50 @@
                 }
             }
         }
+        .vip-box{
+            position: absolute;
+            width: px2Rem(120px);
+            height: px2Rem(93px);
+            border-radius: 10px;
+            border: 1px solid rgba(239, 239, 239, 1);
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0;
+            left: 0;
+            top: px2Rem(80px);
+            p:first-child{
+                font-size: px2Rem(9px);
+                color: rgba(183, 183, 183, 1);
+            }
+            P:nth-child(2) {
+                font-size: px2Rem(16px);
+                color: rgba(255, 107, 58, 1);
+                margin: 3px 0;
+            }
+            button {
+                border: none;
+                width: px2Rem(60px);
+                height: px2Rem(20px);
+                background: #ee6c5b;
+                color: #fff;
+                font-size: 6px;
+                text-align: center;
+                line-height: px2Rem(20px);
+                border-radius: 2px;
+            }
+            button:last-child{
+                margin-top: 5px;
+                background: #a5a5a5;
+            }
+        }
         .home-bottom{
             display: flex;
             margin-top: px2Rem(15px);
-            height: 83vh;
+            /*height: 83vh;*/
+            min-height: 450px;
+            overflow: hidden;
             .home-left{
                 width: px2Rem(75px);
                 background: rgba(0, 0, 0, .82);
@@ -258,5 +320,34 @@
         top: 0;
         left: 0;
         z-index: -1;
+    }
+    .showShade{
+        position: absolute;
+        width: 100%;
+        height: 100vh;
+        background: rgba(0,0,0,.55);
+        top: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &>div{
+            width: px2Rem(522px);
+            height: px2Rem(425px);
+            background: rgba(0,0,0,.92);
+            border-radius: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            img{
+                width: px2Rem(220px);
+            }
+            p{
+                margin-top: px2Rem(31px);
+                font-size: px2Rem(40px);
+                color: rgba(255, 94, 89, 1);
+            }
+        }
     }
 </style>

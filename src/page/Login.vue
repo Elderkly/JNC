@@ -10,6 +10,7 @@
                     <p>会员剩余天数</p>
                     <p>128</p>
                     <button @click.stop="showShade = !showShade">续费</button>
+                    <button @click.stop="logout">退出</button>
                 </div>
             </div>
         </div>
@@ -84,6 +85,10 @@
                 } else {
                     alert(text)
                 }
+            },
+            logout() {
+                localStorage.removeItem('USERINFO')
+                location.reload()
             },
             _register() {
                 const {userName, passWord, _passWord, code} = this.registerData
@@ -315,7 +320,7 @@
     .vip-box{
         position: absolute;
         width: px2Rem(120px);
-        height: px2Rem(73px);
+        height: px2Rem(93px);
         border-radius: 10px;
         border: 1px solid rgba(239, 239, 239, 1);
         background: #fff;
@@ -344,6 +349,10 @@
             text-align: center;
             line-height: px2Rem(20px);
             border-radius: 2px;
+        }
+        button:last-child{
+            margin-top: 5px;
+            background: #a5a5a5;
         }
     }
     .showShade{

@@ -176,7 +176,7 @@
 
 <style lang="scss" scoped>
     .PoP{
-        position: absolute!important;
+        position:fixed;
         width: px2Rem(516px);
         height: px2Rem(447px) !important;
         background: #EFEFEF;

@@ -91,7 +91,7 @@
                 border: none;
                 border-radius: 5px;
                 text-indent: px2Rem(48px);
-                font-size: px2Rem(20px);
+                font-size: px2Rem(18px);
                 &::placeholder{
                     color: #C1C1C1;
                     font-weight: bold;
