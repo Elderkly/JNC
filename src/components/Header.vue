@@ -59,7 +59,7 @@
 <style scoped lang="scss">
     @media (min-width: 1920px){
         .header>div:first-child>div{
-            margin-left: 36% !important;
+            margin-left: 34% !important;
         }
     }
     .header{

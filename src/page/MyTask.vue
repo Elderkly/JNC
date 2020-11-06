@@ -17,7 +17,7 @@
                 <div>{{item.number}}</div>
             </div>
         </div>
-        <div class="box">
+        <div class="fixedHeaderBox">
             <div class="tableBox">
                 <div class="table">
                     <Header
@@ -197,16 +197,9 @@
         }
     }
 
-    .tableBox{
-        border: 1px solid #EBEBEB;
-        /*height: 60vh;*/
-        min-height: 300px;
-        overflow-y: scroll;
-        max-height: 500px;
-    }
-    ::-webkit-scrollbar {
+    /*::-webkit-scrollbar {*/
         /*display: none; !* Chrome Safari *!*/
-    }
+    /*}*/
     .table{
         display: table;
         width: 100%;
@@ -399,20 +392,5 @@
                 }
             }
         }
-    }
-    .opacityHeader{
-        opacity: 0;
-    }
-    .box{
-        position: relative;
-    }
-    .fixedHeader{
-        position: absolute;
-        top: 0;
-        display: table;
-        width: 100%;
-        table-layout: fixed;
-        border: 1px solid #EBEBEB;
-        box-sizing: border-box;
     }
 </style>

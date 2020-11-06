@@ -17,26 +17,35 @@
                 <div>{{item.number}}</div>
             </div>
         </div>
-        <div class="tableBox">
-            <div class="table">
+        <div class="fixedHeaderBox">
+            <div class="tableBox">
+                <div class="table">
+                    <Header
+                        class="opacityHeader"
+                        @changeType="changeType"
+                        :data="['证劵代码','证劵名称','最新价','涨跌幅','股票余额','可用余额','冻结数量','盈亏金额','市值','盈亏比例','成本价','持仓天数']"
+                    />
+                    <div class="items" v-for="item in [...new Array(10)]">
+                        <div class="ellipsis">123023</div>
+                        <div class="ellipsis">美联转债</div>
+                        <div>103.530</div>
+                        <div>-3.45%</div>
+                        <div>293004</div>
+                        <div>293849</div>
+                        <div>300</div>
+                        <div>-20394</div>
+                        <div>10405.33</div>
+                        <div>-3.5%</div>
+                        <div>104</div>
+                        <div>38天</div>
+                    </div>
+                </div>
+            </div>
+            <div class="fixedHeader">
                 <Header
                     @changeType="changeType"
                     :data="['证劵代码','证劵名称','最新价','涨跌幅','股票余额','可用余额','冻结数量','盈亏金额','市值','盈亏比例','成本价','持仓天数']"
                 />
-                <div class="items" v-for="item in [...new Array(5)]">
-                    <div class="ellipsis">123023</div>
-                    <div class="ellipsis">美联转债</div>
-                    <div>103.530</div>
-                    <div>-3.45%</div>
-                    <div>293004</div>
-                    <div>293849</div>
-                    <div>300</div>
-                    <div>-20394</div>
-                    <div>10405.33</div>
-                    <div>-3.5%</div>
-                    <div>104</div>
-                    <div>38天</div>
-                </div>
             </div>
         </div>
     </div>
@@ -141,13 +150,6 @@
                 color: #4C8BFD;
             }
         }
-    }
-    .tableBox{
-        border: 1px solid #EBEBEB;
-        height: 60vh;
-    }
-    ::-webkit-scrollbar {
-        display: none; /* Chrome Safari */
     }
     .table{
         display: table;
