@@ -1,21 +1,23 @@
 export default function (event, dom) {
     var e = event || window.event;
     var oDiv = dom
+    //  disX: 元素内指针位置与元素左侧边框的距离
     var disX = e.clientX - oDiv.offsetLeft;
     var disY = e.clientY - oDiv.offsetTop;
     document.body.onmousemove = function (event) {
         var e = event || window.event
         //3、移动时，鼠标距离当前窗口x轴坐标 - 鼠标在拖拽元素的坐标 = 剩下距离body的x轴坐标
-        //将这个数值设置为拖拽元素的left、top
+        //  boxLeft：x/y轴可移动的距离
         var boxLeft = e.clientX - disX;
         var boxTop = e.clientY - disY;
         //获取body的页面可视宽高
         var clientHeight = document.documentElement.clientHeight || document.body.clientHeight
         var clientWidth = document.documentElement.clientWidth || document.body.clientWidth
-        //4、限制拖拽宽高
+        //  限制左侧边界
         if (boxLeft < 0) {
             boxLeft = 0;
             //如果拖拽元素定位的数值高于, 页面可视宽 - 拖拽元素自身宽 (可视页面最大宽)
+            //  限制右侧边界
         } else if (boxLeft > clientWidth - oDiv.offsetWidth) {
             //满足这个条件，就限制宽为，clientWidth-oDiv.offsetWidth(可视页面最大宽)
             boxLeft = clientWidth - oDiv.offsetWidth;

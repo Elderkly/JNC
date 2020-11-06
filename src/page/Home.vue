@@ -3,7 +3,7 @@
       <div class="home-top">
           <img src="../assets/icon.png"/>
           <div>
-              <img src="../assets/user-header.png"/>
+              <img src="../assets/icon-red.png"/>
               <div class="right-items">
                   <p>1028488.33</p>
                   <p>我的资产</p>

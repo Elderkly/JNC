@@ -57,6 +57,11 @@
 </script>
 
 <style scoped lang="scss">
+    @media (min-width: 1920px){
+        .header>div:first-child>div{
+            margin-left: 36% !important;
+        }
+    }
     .header{
         display: table-row;
         height: px2Rem(53px);
@@ -72,8 +77,10 @@
             position: relative;
             cursor: pointer;
             &:first-child{
-                text-indent: px2Rem(30px);
                 width: 10%;
+                &>div{
+                    margin-left: 27%;
+                }
             }
             &:last-child{
                 width: 20%;
