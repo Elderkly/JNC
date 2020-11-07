@@ -155,7 +155,7 @@
                     margin-right: px2Rem(50px);
                     p:first-child{
                         font-size: px2Rem(25px);
-                        font-weight: bold;
+                        font-weight: 400;
                         color: rgba(255, 100, 113, 1);
                         line-height: px2Rem(30px);
                     }
@@ -225,6 +225,7 @@
                 box-sizing: border-box;
                 margin-right: px2Rem(15px);
                 box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16);
+                font-weight: 300;
                 .left-button{
                     display: flex;
                     flex-direction: column;

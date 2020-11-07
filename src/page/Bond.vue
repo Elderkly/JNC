@@ -82,7 +82,7 @@
         span{
             font-size: px2Rem(18px);
             color: #465D91;
-            font-weight: bold;
+            font-weight: 400;
             margin-right: px2Rem(22px);
         }
         div{
@@ -101,9 +101,10 @@
                 border-radius: 5px;
                 text-indent: px2Rem(48px);
                 font-size: px2Rem(18px);
+                line-height: px2Rem(41px);
                 &::placeholder{
                     color: #C1C1C1;
-                    font-weight: bold;
+                    font-weight: 400;
                 }
             }
         }
@@ -128,7 +129,7 @@
             span{
                 font-size: px2Rem(18px);
                 color: #818385;
-                font-weight: bold;
+                font-weight: 400;
             }
             div{
                 min-width: px2Rem(30px);
@@ -137,7 +138,7 @@
                 border-radius: px2Rem(16px);
                 text-align: center;
                 color: #fff;
-                font-weight: bold;
+                font-weight: 400;
             }
         }
         .action{
@@ -165,7 +166,7 @@
                 display: table-cell;
                 color: #808080;
                 font-size: px2Rem(16px);
-                font-weight: bold;
+                font-weight: 400;
                 text-align: left;
                 &:first-child{
                     text-align: center;
@@ -192,32 +193,32 @@
                     text-align: center;
                     font-size: px2Rem(18px);
                     color: #164D9D;
-                    font-weight: bold;
+                    font-weight: 400;
                 }
                 &:nth-child(2) {
                     font-size: px2Rem(18px);
                     color: #164D9D;
-                    font-weight: bold;
+                    font-weight: 400;
                 }
                 &:nth-child(3),&:nth-child(9) {
                     font-size: px2Rem(20px);
                     color: #FF4050;
-                    font-weight: bold;
+                    font-weight: 400;
                 }
                 &:nth-child(4),&:nth-child(8),&:nth-child(10) {
                     font-size: px2Rem(20px);
                     color: #47B133;
-                    font-weight: bold;
+                    font-weight: 400;
                 }
                 &:nth-child(5),&:nth-child(6),&:nth-child(7) {
                     font-size: px2Rem(17px);
                     color: #3C3C3C;
-                    font-weight: bold;
+                    font-weight: 400;
                 }
                 &:nth-child(11),&:nth-child(12) {
                     font-size: px2Rem(16px);
                     color: #000;
-                    font-weight: bold;
+                    font-weight: 400;
                 }
             }
         }

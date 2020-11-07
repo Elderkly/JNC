@@ -221,6 +221,7 @@
                     text-align: center;
                     font-size: px2Rem(16px);
                     color: #000;
+                    line-height: px2Rem(27px);
                 }
             }
             &>span{
@@ -255,12 +256,12 @@
                 justify-content: space-between;
                 &>div:first-child{
                     p:first-child{
-                        font-weight: bold;
+                        font-weight: 400;
                         font-size: px2Rem(22px);
                         color: #164D9D;
                     }
                     p:last-child{
-                        font-weight: bold;
+                        font-weight: 400;
                         font-size: px2Rem(16px);
                         color: #A2A2A2;
                         line-height: px2Rem(20px);
@@ -269,21 +270,21 @@
                 &>span:nth-child(2) {
                     font-size: px2Rem(25px);
                     color: #FF4050;
-                    font-weight: bold;
+                    font-weight: 400;
                 }
                 &>span:nth-child(3) {
                     font-size: px2Rem(19px);
                     color: #FF4050;
-                    font-weight: bold;
+                    font-weight: 400;
                 }
                 &>div:last-child{
                     p:first-child{
-                        font-weight: bold;
+                        font-weight: 400;
                         font-size: px2Rem(19px);
                         color: #000;
                     }
                     p:last-child{
-                        font-weight: bold;
+                        font-weight: 400;
                         font-size: px2Rem(13px);
                         color: #A2A2A2;
                         line-height: px2Rem(15px);

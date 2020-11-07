@@ -144,7 +144,7 @@
         &>span:nth-child(2){
             font-size: 19px;
             color: #0A1832;
-            font-weight: 500;
+            font-weight: 400;
             margin-left: 6px;
             flex: 1;
             text-align: left;
@@ -163,7 +163,7 @@
             &:first-child{
                 font-size: px2Rem(67px);
                 color: #0F0F0F;
-                font-weight: bold;
+                font-weight: 400;
                 margin-bottom: px2Rem(23px);
             }
             &:nth-child(2){

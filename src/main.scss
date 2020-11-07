@@ -2,7 +2,7 @@
     font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
 }
 html{
-    font-size: 19.2px;
+    font-size: 17px;
 }
 body {
     margin: 0;
@@ -77,10 +77,10 @@ p{
 }
 .tableBox{
     border: 1px solid #EBEBEB;
-    //min-height: 300px;
+    min-height: 550px;
     overflow-y: scroll;
     //max-height: 500px;
-    height: 500px;
+    height: 70vh;
 }
 @media screen and (max-width: 1300px) {
     .PopInput{

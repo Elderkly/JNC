@@ -72,7 +72,7 @@
             display: table-cell;
             color: #808080;
             font-size: px2Rem(16px);
-            font-weight: bold;
+            font-weight: 400;
             text-align: left;
             position: relative;
             cursor: pointer;
